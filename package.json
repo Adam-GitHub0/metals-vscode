@@ -120,6 +120,16 @@
         }
       },
       {
+        "id": "twirl",
+        "extensions": [
+          ".scala.txt",
+          ".scala.html",
+          ".scala.xml",
+          ".scala.csv"
+        ],
+        "configuration": "./twirl.language-configuration.json"
+      },
+      {
         "id": "semanticdb",
         "extensions": [
           ".semanticdb",
