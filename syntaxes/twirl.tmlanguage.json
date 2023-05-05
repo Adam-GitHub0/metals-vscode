@@ -1,0 +1,112 @@
+{
+  "name": "twirl",
+  "scopeName": "source.twirl",
+  "fileTypes": ["scala.txt", "scala.html", "scala.xml", "scala.csv"],
+  "patterns": [
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#expression"
+    },
+    {
+      "include": "#variable"
+    },
+    {
+      "include": "#html"
+    }
+  ],
+  "repository": {
+    "comment": {
+      "patterns": [
+        {
+          "name": "punctuation.definition.comment.twirl",
+          "match": "@\\*",
+          "captures": {
+            "0": {
+              "name": "punctuation.definition.comment.begin.twirl"
+            }
+          }
+        },
+        {
+          "name": "punctuation.definition.comment.twirl",
+          "match": "\\*@",
+          "captures": {
+            "0": {
+              "name": "punctuation.definition.comment.end.twirl"
+            }
+          }
+        }
+      ]
+    },
+    "variable": {
+      "begin": "@\\{",
+      "end": "\\}",
+      "patterns": [
+        {
+          "name": "variable.other.readwrite.member.twirl",
+          "match": "\\b\\w+\\b"
+        }
+      ]
+    },
+    "expression": {
+      "patterns": [
+        
+        {
+          "name": "meta.expression.twirl",
+          "match": "(@)(\\w+)",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.expression.begin.twirl"
+            },
+            "2": {
+              "name": "variable.parameter.function.language.scala"
+            }
+          }
+        },
+        {
+          "name": "meta.expression.twirl",
+          "begin": "(@)\\(",
+          "end": "\\)",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.expression.begin.twirl"
+            }
+          },
+          "patterns": [
+            {
+              "name": "variable.parameter.function.language.scala",
+              "match": "\\b\\w+\\b"
+            }
+          ]
+        },
+        {
+          "match": "\\b(if|else)\\b",
+          "name": "keyword.control.flow.twirl"
+        }
+      ]
+    },
+    "html": {
+      "begin": "<",
+      "end": ">",
+      "patterns": [
+        {
+          "match": "(?<=<)(?:[^/\\s]+\\s[^>]+|[^/\\s]+|/[^>]+|!--[^-]+--)",
+          "name": "meta.tag.html"
+        },
+        {
+          "match": "(?<=</)[^>]+",
+          "name": "meta.tag.end.html"
+        },
+        {
+          "match": "(?<=\\s)\\w+(?=\\s*=)",
+          "name": "entity.other.attribute-name.html"
+        },
+        {
+          "match": "(?<=\\s)=\\s*(\"[^\"]*\"|'[^']*')",
+          "name": "string.quoted.double.html"
+        }
+      ]
+    }
+  }
+}

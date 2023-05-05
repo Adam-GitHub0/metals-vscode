@@ -168,6 +168,11 @@
         "language": "semanticdb",
         "scopeName": "source.semanticdb",
         "path": "./syntaxes/semanticdb.json"
+      },
+      {
+        "language": "twirl",
+        "scopeName": "source.twirl",
+        "path": "./syntaxes/twirl.tmLanguage.json"
       }
     ],
     "configurationDefaults": {
