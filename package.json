@@ -123,9 +123,21 @@
         "id": "twirl",
         "extensions": [
           ".scala.txt",
-          ".scala.html",
-          ".scala.xml",
           ".scala.csv"
+        ],
+        "configuration": "./twirl.language-configuration.json"
+      },
+      {
+        "id": "twirl-html",
+        "extensions": [
+          ".scala.html"
+        ],
+        "configuration": "./twirl.language-configuration.json"
+      },
+      {
+        "id": "twirl-xml",
+        "extensions": [
+          ".scala.xml"
         ],
         "configuration": "./twirl.language-configuration.json"
       },
@@ -173,6 +185,16 @@
         "language": "twirl",
         "scopeName": "source.twirl",
         "path": "./syntaxes/twirl.tmLanguage.json"
+      },
+      {
+        "language": "twirl-html",
+        "scopeName": "source.twirl.html",
+        "path": "./syntaxes/twirl-html-language.json"
+      },
+      {
+        "language": "twirl-xml",
+        "scopeName": "source.twirl.xml",
+        "path": "./syntaxes/twirl-xml-language.json"
       }
     ],
     "configurationDefaults": {
