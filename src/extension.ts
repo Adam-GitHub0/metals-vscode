@@ -293,6 +293,7 @@ function launchMetals(
       { scheme: "file", language: "java" },
       { scheme: "jar", language: "scala" },
       { scheme: "jar", language: "java" },
+      { scheme: "file", language: "twirl" },
     ],
     synchronize: {
       configurationSection: "metals",

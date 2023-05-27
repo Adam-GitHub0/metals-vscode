@@ -1,0 +1,70 @@
+{
+  "name": "twirl",
+  "scopeName": "source.twirl",
+  "fileTypes": [
+    "scala.txt",
+    "scala.csv"
+  ],
+  "patterns": [
+    {
+      "include": "#comment"
+    },
+    {
+      "include": "#expression"
+    },
+    {
+      "include": "#variable"
+    }
+  ],
+  "repository": {
+    "comment": {
+      "begin": "@\\*",
+      "end": "\\*@",
+      "name": "comment.block.twirl"
+    },
+    "variable": {
+      "begin": "@\\{",
+      "end": "\\}",
+      "patterns": [
+        {
+          "include": "source.scala"
+        }
+      ]
+    },
+    "expression": {
+      "patterns": [
+        {
+          "name": "meta.expression.twirl",
+          "match": "(@)([\\w\\.]+)",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.expression.begin.twirl"
+            },
+            "2": {
+              "name": "variable.parameter.function.language.scala"
+            }
+          }
+        },
+        {
+          "name": "meta.expression.twirl",
+          "begin": "(@)\\(",
+          "end": "\\)",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.expression.begin.twirl"
+            }
+          },
+          "patterns": [
+            {
+              "include": "source.scala"
+            },
+            {
+              "match": "\\b\\w+\\b",
+              "name": "variable.parameter.function.language.scala"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
